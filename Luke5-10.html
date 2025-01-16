@@ -113,23 +113,26 @@
             { id: "q1"}, { id: "q2"}, { id: "q3"}, { id: "q4"}, { id: "q5"}, { id: "q6"}, { id: "q7"}
         ];
 
-        function saveAnswers() {
-            questions.forEach(q => {
-                const answer = document.getElementById(q.id).value;
-                localStorage.setItem(q.id, answer);
+        function saveAnswers(Luke5-10) {
+            const answers = {};
+            const textareas = document.querySelectorAll('#questions-container textarea');
+            textareas.forEach(textarea => {
+                const storageKey = studyName + "_" + textarea.id;
+                localStorage.setItem(storageKey, textarea.value);
             });
-            alert("Answers Saved!");
+            alert(studyName + " Answers Saved!");
         }
 
-        function loadAnswers() {
-            questions.forEach(q => {
-                const savedAnswer = localStorage.getItem(q.id);
+        function loadAnswers(Luke5-10) {
+            const textareas = document.querySelectorAll('#questions-container textarea');
+            textareas.forEach(textarea => {
+                const storageKey = studyName + "_" + textarea.id;
+                const savedAnswer = localStorage.getItem(storageKey);
                 if (savedAnswer) {
-                    document.getElementById(q.id).value = savedAnswer;
+                    textarea.value = savedAnswer;
                 }
             });
-            alert("Answers Loaded!");
-
+            alert(studyName + " Answers Loaded!");
         }
     </script>
 </body>
