@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luke 5-10 Bible Study</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #555;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        textarea {
+            width: 95%;
+            height: 100px;
+            padding: 5px;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Luke 5-10 Bible Study</h1>
+        <a href="index.html">Back to Home</a>
+
+        <div id="questions-container">
+            <div class="question">
+                <h2>Luke 5:1-11 (The Calling of the First Disciples)</h2>
+                <p>1. Describe the scene at the beginning of this passage. What are the people doing? What is Jesus doing?</p>
+                <textarea id="q1"></textarea>
+                <p>2. After the miraculous catch, Simon Peter says to Jesus, “Depart from me, for I am a sinful man, O Lord” (5:8). Why do you think he reacts this way?</p>
+                <textarea id="q2"></textarea>
+            </div>
+
+            <div class="question">
+                <h2>Luke 6:12-19 (The Choosing of the Twelve Apostles)</h2>
+                <p>3. What does Jesus do before choosing the twelve apostles? What does this tell us about the importance of this decision?</p>
+                <textarea id="q3"></textarea>
+            </div>
+
+            <div class="question">
+                <h2>Luke 7:1-10 (The Faith of the Centurion)</h2>
+                <p>4. The centurion says, “I am not worthy to have you come under my roof… But say the word, and my servant will be healed” (7:6-7). What does this reveal about the centurion’s understanding of Jesus’ authority?</p>
+                <textarea id="q4"></textarea>
+            </div>
+
+            <div class="question">
+                <h2>Luke 9:18-27 (Peter’s Confession and Jesus Foretells His Death)</h2>
+                <p>5. Jesus asks his disciples, “Who do the crowds say that I am?” and then “Who do you say that I am?” (9:18-20). Why do you think Jesus asks these two questions?</p>
+                <textarea id="q5"></textarea>
+                <p>6. Jesus says, “If anyone would come after me, let him deny himself and take up his cross daily and follow me” (9:23). What does it mean to “deny yourself” and “take up your cross daily” in your own life? How can you practically apply this teaching?</p>
+                <textarea id="q6"></textarea>
+            </div>
+
+            <div class="question">
+                <h2>Luke 10:25-37 (The Parable of the Good Samaritan)</h2>
+                <p>7. What is the main point Jesus is trying to make with the Parable of the Good Samaritan? Who is our “neighbor”?</p>
+                <textarea id="q7"></textarea>
+            </div>
+        </div>
+
+        <button onclick="saveAnswers()">Save Answers</button>
+        <button onclick="loadAnswers()">Load Answers</button>
+
+    </div>
+    <footer>
+        &copy; 2023 Jacob's Tribe Bible Study
+    </footer>
+
+    <script>
+        const questions = [
+            { id: "q1"}, { id: "q2"}, { id: "q3"}, { id: "q4"}, { id: "q5"}, { id: "q6"}, { id: "q7"}
+        ];
+
+        function saveAnswers() {
+            questions.forEach(q => {
+                const answer = document.getElementById(q.id).value;
+                localStorage.setItem(q.id, answer);
+            });
+            alert("Answers Saved!");
+        }
+
+        function loadAnswers() {
+            questions.forEach(q => {
+                const savedAnswer = localStorage.getItem(q.id);
+                if (savedAnswer) {
+                    document.getElementById(q.id).value = savedAnswer;
+                }
+            });
+            alert("Answers Loaded!");
+
+        }
+    </script>
+</body>
+</html>
